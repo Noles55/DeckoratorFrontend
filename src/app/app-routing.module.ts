@@ -1,7 +1,12 @@
+import { PredictionComponent } from './prediction/prediction.component';
+import { TrainingComponent } from './training/training.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'training', component: TrainingComponent},
+  { path: 'prediction', component: PredictionComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
