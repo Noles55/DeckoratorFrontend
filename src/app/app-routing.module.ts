@@ -1,5 +1,5 @@
-import { PredictionComponent } from './prediction/prediction.component';
-import { TrainingComponent } from './training/training.component';
+import { PredictionComponent } from './features/prediction/prediction.component';
+import { TrainingComponent } from './features/training/training.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
