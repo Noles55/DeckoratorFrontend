@@ -5,13 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class DeckService {
 
-  getRandomDeck() {
-    return [
-      { id: 1, name: "Island"},
-      { id: 2, name: "Counterspell"},
-      { id: 3, name: "Brainstorm"},
-      { id: 4, name: "Force of Will"}
-    ]
+  getRandomDeck(): any[] {
+    let list = [];
+
+    for (var i = 0; i < 100; i++)
+    {
+      list.push({ id: i, name: "Card " + i})
+    }
+
+    return list;
   }
 
 }

@@ -5,12 +5,12 @@ import { CommonModule } from '@angular/common';
 import { DeckService } from './services/deck.service';
 
 @NgModule({
-  declarations: [
-    NavbarComponent
-  ],
  imports: [
     CommonModule,
     AppRoutingModule
+  ],
+ declarations: [
+    NavbarComponent
   ],
   providers: [
     DeckService
