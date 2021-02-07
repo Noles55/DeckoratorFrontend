@@ -1,3 +1,4 @@
+import { CardTypeListComponent } from './card-type-list/card-type-list.component';
 import { DeckComponent } from './deck/deck.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,7 +8,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   declarations: [
-    DeckComponent
+    DeckComponent,
+    CardTypeListComponent
   ],
   exports: [
     DeckComponent

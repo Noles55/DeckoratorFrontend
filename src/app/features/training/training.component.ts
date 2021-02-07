@@ -1,3 +1,4 @@
+import { DeckService } from './../../core/services/deck.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingComponent implements OnInit {
 
-  constructor() { }
+  deck: any;
+
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
+    this.deck = this.deckService.getRandomDeck();
   }
 
 }

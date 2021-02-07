@@ -1,5 +1,4 @@
-import { DeckService } from './../../core/services/deck.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'deck',
@@ -8,12 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeckComponent implements OnInit {
 
-  deck;
+  @Input() deck: any;
 
-  constructor(private deckService: DeckService) { }
+  cardTypes: string[] = [];
+  cardList: any = {};
+
+  constructor() { }
 
   ngOnInit() {
-    this.deck = this.deckService.getRandomDeck();
+    this.deck.forEach(card => {
+      if (!this.cardTypes.includes(card.type)) this.cardTypes.push(card.type);
+      if (!this.cardList[card.type]) this.cardList[card.type] = [];
+      this.cardList[card.type].push(card.name);
+    });
   }
-
 }

@@ -6,14 +6,15 @@ import { Injectable } from '@angular/core';
 export class DeckService {
 
   getRandomDeck(): any[] {
-    let list = [];
-
-    for (var i = 0; i < 100; i++)
-    {
-      list.push({ id: i, name: "Card " + i})
-    }
-
-    return list;
+    return [
+      { name: "Island", type: "Land"},
+      { name: "Brainstorm", type: "Instant"},
+      { name: "Mystic Remora", type: "Enchantment"},
+      { name: "Sol Ring", type: "Artifact"},
+      { name: "Jace, the Mind Sculptor", type: "Planeswalker"},
+      { name: "Preordain", type: "Sorcery"},
+      { name: "Snapcaster Mage", type: "Creature"}
+    ]
   }
 
 }

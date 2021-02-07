@@ -1,4 +1,3 @@
-import { DeckService } from './../../core/services/deck.service';
 import { SharedModule } from '../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
