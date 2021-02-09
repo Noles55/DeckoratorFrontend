@@ -17,6 +17,12 @@ ul {
   padding-inline-start: 0px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 13px;
+}
+
 .spacer {
   flex: 1;
 }
@@ -50,7 +56,7 @@ ul {
 .content {
   display: flex;
   margin: 82px auto 32px;
-  max-width: 75%;
+  max-width: 100;
   padding: 0px 48px;
   flex-direction: column;
 }
