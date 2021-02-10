@@ -1,0 +1,9 @@
+li {
+  padding-left: 2px;
+}
+
+.mat-divider {
+  border-top-width: 1px;
+  opacity: 50%;
+  border-top-color: rgb(200, 200, 200);
+}

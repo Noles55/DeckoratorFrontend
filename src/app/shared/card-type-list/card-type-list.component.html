@@ -4,7 +4,9 @@
 <div>
   <ul>
     <li *ngFor="let card of cardList">
-      {{ card }}
+      <div (mouseenter)="selectCard(card)">
+        {{ card }}
+      </div>
     </li>
   </ul>
 </div>

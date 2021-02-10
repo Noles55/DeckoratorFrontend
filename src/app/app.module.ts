@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { PredictionComponent } from './features/prediction/prediction.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PredictionComponent } from './features/prediction/prediction.component'
     NgbModule,
     CoreModule,
     SharedModule,
-    TrainingModule
+    TrainingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
