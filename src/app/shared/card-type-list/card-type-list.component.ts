@@ -1,5 +1,6 @@
 import { NotificationService } from '../../core/services/notification.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { Card } from 'src/app/core/entities/card';
 
 @Component({
   selector: 'card-type-list',
@@ -9,15 +10,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardTypeListComponent implements OnInit {
 
   @Input() cardType: string;
-  @Input() cardList: string[]; //Change to Card[] when Card entity is made
+  @Input() cardList: Card[];
 
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
   }
 
-  selectCard(cardName: string) {
-    this.notificationService.sendEvent<string>("selectCard", cardName)
+  selectCard(card: Card) {
+    this.notificationService.sendEvent<Card>("selectCard", card)
   }
 
 }

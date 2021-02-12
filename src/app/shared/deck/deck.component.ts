@@ -10,15 +10,15 @@ export class DeckComponent implements OnInit {
   @Input() deck: any;
 
   cardTypes: string[] = [];
-  cardList: any = {};
+  cardList = {};
 
   constructor() { }
 
   ngOnInit() {
-    this.deck.forEach(card => {
+    this.deck.cards.forEach(card => {
       if (!this.cardTypes.includes(card.type)) this.cardTypes.push(card.type);
       if (!this.cardList[card.type]) this.cardList[card.type] = [];
-      this.cardList[card.type].push(card.name);
+      this.cardList[card.type].push(card);
     });
   }
 }

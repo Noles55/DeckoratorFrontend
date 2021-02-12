@@ -1,3 +1,4 @@
+import { Card } from './../../core/entities/card';
 import { NotificationService } from './../../core/services/notification.service';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -8,23 +9,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardViewerComponent implements OnInit {
 
-  cardUrl: string;
+  @Input()
+  card: Card;
 
-  constructor(private notificationService: NotificationService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.notificationService.subscribeToEvent<string>("selectCard", this.selectCard);
-    console.log(this.cardUrl);
+    // this.notificationService.subscribeToEvent<string>("selectCard", this.selectCard);
+    // console.log(this.cardUrl);
   }
 
-  selectCard = (cardName: string) => {
-    var cleanCardName= cardName.replace(/[^A-Z0-9]+/ig, "-").toLowerCase();
-    this.cardUrl = "../../assets/images/" + cleanCardName + ".jpg";
-    console.log(this.cardUrl);
-  }
-
-  getSelectedCard() {
-    return this.cardUrl;
-  }
-
+  // selectCard = (cardName: string) => {
+  //   var cleanCardName= cardName.replace(/[^A-Z0-9]+/ig, "-").toLowerCase();
+  //   this.cardUrl = "../../assets/images/" + cleanCardName + ".jpg";
+  //   console.log(this.cardUrl);
+  // }
 }

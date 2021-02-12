@@ -1,6 +1,8 @@
 import { NotificationService } from './../../core/services/notification.service';
 import { DeckService } from './../../core/services/deck.service';
 import { Component, OnInit } from '@angular/core';
+import { Deck } from 'src/app/core/entities/deck';
+import { Card } from 'src/app/core/entities/card';
 
 @Component({
   selector: 'app-training',
@@ -9,11 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingComponent implements OnInit {
 
-  deck: any;
+  deck: Deck;
+  selectedCard: Card;
 
-  constructor(private deckService: DeckService) { }
+  constructor(private deckService: DeckService, private notificationService: NotificationService) {
+  }
 
   ngOnInit() {
     this.deck = this.deckService.getRandomDeck();
+    this.notificationService.subscribeToEvent<Card>("selectCard", this.onCardSelect);
+  }
+
+
+  onCardSelect = (card: Card) => {
+    this.selectedCard = card;
+    console.log(this.selectedCard.name);
+  }
+
+  getSelectedCard() {
+    return this.selectedCard;
   }
 }
