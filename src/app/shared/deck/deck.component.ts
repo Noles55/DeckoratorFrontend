@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Deck } from 'src/app/core/entities/deck';
 
 @Component({
   selector: 'deck',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DeckComponent implements OnInit {
 
-  @Input() deck: any;
+  @Input() deck: Deck;
 
   cardTypes: string[] = [];
   cardList = {};

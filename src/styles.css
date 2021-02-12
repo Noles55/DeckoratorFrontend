@@ -93,7 +93,7 @@ svg.material-icons:not(:last-child) {
 .card {
   border-radius: 4px;
   border: 1px solid #eee;
-  background-color: #fafafa;
+  background-color: rgb(20, 20, 20);
   height: 40px;
   width: 200px;
   margin: 0 8px 16px;

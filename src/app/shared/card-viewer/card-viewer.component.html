@@ -1,3 +1,6 @@
-<div>
-    <img [src]="card.imageUrl" alt=""/>
+<div *ngIf="card">
+  <img [src]="card.imageUrl" alt=""/>
+  <h4> {{ card.name }}</h4>
+  <h5> {{ card.type }}</h5>
 </div>
+

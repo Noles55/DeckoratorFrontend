@@ -25,10 +25,5 @@ export class TrainingComponent implements OnInit {
 
   onCardSelect = (card: Card) => {
     this.selectedCard = card;
-    console.log(this.selectedCard.name);
-  }
-
-  getSelectedCard() {
-    return this.selectedCard;
   }
 }
