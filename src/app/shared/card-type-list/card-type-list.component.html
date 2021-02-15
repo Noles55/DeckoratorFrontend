@@ -1,10 +1,10 @@
 <h5>
-  {{ cardType }}
+  {{ cardType }} ({{ cardList.length }})
 </h5>
 <div>
   <ul>
     <li *ngFor="let card of cardList">
-      <div class="pointer" (mouseenter)="selectCard(card)">
+      <div class="pointer" (click)="selectCard(card)">
         {{ card.name }}
       </div>
     </li>

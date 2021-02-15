@@ -1,0 +1,19 @@
+.container-fluid {
+  max-width: 90%;
+}
+
+mat-slider {
+  width: 100%;
+  margin-top: 8px;
+}
+
+button {
+  margin-top: 13px;
+  width: 100%;
+}
+
+.button {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}

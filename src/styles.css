@@ -22,7 +22,7 @@ ul {
 }
 
 img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
   border-radius: 16px;
 }
@@ -39,7 +39,7 @@ img {
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: rgb(25, 118, 210);
   color: white;
   font-weight: 600;
 }
@@ -299,6 +299,34 @@ svg#clouds {
   svg#rocket-smoke {
     display: none;
     visibility: hidden;
+  }
+}
+
+/* xs < 768 */
+@media screen and (max-width: 767px) {
+  body {
+      font-size: 0.9em;
+  }
+}
+
+/* sm */
+@media screen and (min-width: 768px) {
+  body {
+      font-size: 1em;
+  }
+}
+
+/* md */
+@media screen and (min-width: 992px) {
+  body {
+      font-size: 1.2em;
+  }
+}
+
+/* lg */
+@media screen and (min-width: 1200px) {
+  body {
+      font-size: 1.3em;
   }
 }
 
