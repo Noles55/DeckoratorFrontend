@@ -4,10 +4,10 @@
       <h2>{{ deck.name }}</h2>
     </div>
     <div class="col">
-      <mat-slider max=100 min=0 value=50 step=1 thumbLabel=true color="primary"></mat-slider>
+      <mat-slider max=100 min=0 [value]="rating" step=1 thumbLabel=true color="primary" (change)="onSliderChange($event)"></mat-slider>
     </div>
     <div class="col-auto">
-      <button mat-raised-button color="primary">Submit</button>
+      <button mat-raised-button color="primary" (click)="onRatingSubmit()">Submit</button>
     </div>
   </div>
   <div class="row">
