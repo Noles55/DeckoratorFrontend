@@ -1,5 +1,7 @@
-<div *ngIf="card">
-  <img [src]="card.imageUrl" alt=""/>
+<div class="card-viewer">
+  <div class="card-image" *ngIf="card">
+    <img [src]="card.imageUrl" alt=""/>
+  </div>
   <h4> {{ card.name }}</h4>
   <h5> {{ card.type }}</h5>
 </div>

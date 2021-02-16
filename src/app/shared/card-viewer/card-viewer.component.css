@@ -1,3 +1,14 @@
 div {
   padding-top: 20px;
 }
+
+.card-viewer {
+  text-align: center;
+}
+
+.card-viewer .card-image {
+  max-width: 250px;
+  min-width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
