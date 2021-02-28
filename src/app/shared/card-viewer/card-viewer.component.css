@@ -1,9 +1,6 @@
-div {
-  padding-top: 20px;
-}
-
 .card-viewer {
-  text-align: center;
+  text-align: left;
+  padding-top: 20px;
 }
 
 .card-viewer .card-image {
@@ -11,4 +8,13 @@ div {
   min-width: 75px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.card-text {
+  text-align: left;
+}
+
+.type-line {
+  padding-left: 0px;
+  padding-right: 0px;
 }

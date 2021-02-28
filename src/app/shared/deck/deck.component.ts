@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
+import { Card } from 'src/app/core/entities/card';
 import { Deck } from 'src/app/core/entities/deck';
 
 @Component({
@@ -16,10 +18,11 @@ export class DeckComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.deck.cards.forEach(card => {
-      if (!this.cardTypes.includes(card.type)) this.cardTypes.push(card.type);
-      if (!this.cardList[card.type]) this.cardList[card.type] = [];
-      this.cardList[card.type].push(card);
-    });
+    forkJoin(this.deck.cards).subscribe(val => val.forEach(cardJson => {
+      let card = new Card(cardJson);
+      if (!this.cardTypes.includes(card.super_type)) this.cardTypes.push(card.super_type);
+      if (!this.cardList[card.super_type]) this.cardList[card.super_type] = [];
+      this.cardList[card.super_type].push(card);
+    }));
   }
 }

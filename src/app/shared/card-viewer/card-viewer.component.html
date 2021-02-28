@@ -1,8 +1,10 @@
 <div *ngIf="card" class="card-viewer">
   <div class="card-image" >
-    <img [src]="card.imageUrl" alt=""/>
+    <img [src]="card.image_uris.border_crop" alt=""/>
   </div>
-  <h4> {{ card.name }}</h4>
-  <h5> {{ card.type }}</h5>
+  <h4>{{ card.name }}</h4>
+  <h5>{{ card.super_type }}{{ card.sub_types ? " - " + card.sub_types.join(' ') : ""}}</h5>
+  <h6>{{ card.set_name}}</h6>
+  <p class="card-text">{{ card.oracle_text}}</p>
 </div>
 

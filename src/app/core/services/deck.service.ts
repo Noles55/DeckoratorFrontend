@@ -1,25 +1,32 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Deck } from '../entities/deck';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeckService {
 
-  cards = [
-    { name: "Island", type: "Land", imageUrl: "assets/images/island.jpg"},
-    { name: "Brainstorm", type: "Instant", imageUrl: "assets/images/brainstorm.jpg"},
-    { name: "Mystic Remora", type: "Enchantment", imageUrl: "assets/images/mystic-remora.jpg"},
-    { name: "Sol Ring", type: "Artifact", imageUrl: "assets/images/sol-ring.jpg"},
-    { name: "Jace, the Mind Sculptor", type: "Planeswalker", imageUrl: "assets/images/jace-the-mind-sculptor.jpg"},
-    { name: "Preordain", type: "Sorcery", imageUrl: "assets/images/preordain.jpg"},
-    { name: "Snapcaster Mage", type: "Creature", imageUrl: "assets/images/snapcaster-mage.jpg"}
-  ];
+  deck: Deck;
+
+  constructor(private http: HttpClient) {
+
+  }
 
   getRandomDeck(): Deck {
-    let deck: Deck = new Deck();
-    deck.name = "Test Deck " + Math.round(Math.random());
-    deck.cards = this.cards;
-    return deck;
- }
+    this.deck = new Deck();
+    this.deck.name = "Test Deck";
+    this.deck.cards = [];
+
+    for (let i = 0; i < 10; i++) {
+      this.deck.cards.push(this.getRandomCard());
+    }
+
+    return this.deck;
+  }
+
+  getRandomCard(): Observable<any> {
+    return this.http.get("https://api.scryfall.com/cards/random");
+  }
 }

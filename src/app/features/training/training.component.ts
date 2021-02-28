@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Deck } from 'src/app/core/entities/deck';
 import { Card } from 'src/app/core/entities/card';
 import { MatSliderChange } from '@angular/material/slider';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-training',
@@ -16,12 +17,11 @@ export class TrainingComponent implements OnInit {
   selectedCard: Card;
   rating: number = 50;
 
-
-  constructor(private deckService: DeckService, private notificationService: NotificationService) {
+  constructor(private deckService: DeckService, private notificationService: NotificationService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.deck = this.deckService.getRandomDeck();
+    this.route.data.subscribe(data => this.deck = data.deck);
     this.notificationService.subscribeToEvent<Card>("selectCard", this.onCardSelect);
   }
 
@@ -31,7 +31,6 @@ export class TrainingComponent implements OnInit {
 
   onRatingSubmit = () => {
     this.deck = this.deckService.getRandomDeck();
-    this.rating = 50;
     console.log(this.rating);
   }
 
