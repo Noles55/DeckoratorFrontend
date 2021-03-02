@@ -20,14 +20,20 @@ export class DeckComponent implements OnInit {
 
   ngOnInit() {
     this.notificationService.sendEvent("loading", true);
-    forkJoin(this.deck.cards).subscribe(val => {
-      val.forEach(cardJson => {
-        let card = new Card(cardJson);
-        if (!this.cardTypes.includes(card.main_type)) this.cardTypes.push(card.main_type);
-        if (!this.cardList[card.main_type]) this.cardList[card.main_type] = [];
-        this.cardList[card.main_type].push(card);
-      });
+    this.deck.cards.forEach(cardObservable => cardObservable.subscribe(cardJson => {
+      let card = new Card(cardJson);
+          if (!this.cardTypes.includes(card.main_type)) this.cardTypes.push(card.main_type);
+          if (!this.cardList[card.main_type]) this.cardList[card.main_type] = [];
+          this.cardList[card.main_type].push(card);
+    }));
+    // forkJoin(this.deck.cards).subscribe(val => {
+    //   val.forEach(cardJson => {
+    //     let card = new Card(cardJson);
+    //     if (!this.cardTypes.includes(card.main_type)) this.cardTypes.push(card.main_type);
+    //     if (!this.cardList[card.main_type]) this.cardList[card.main_type] = [];
+    //     this.cardList[card.main_type].push(card);
+    //   });
       this.notificationService.sendEvent("loading", false);
-    });
+    // });
   }
 }
