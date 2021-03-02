@@ -4,7 +4,8 @@ export class Card {
   mana_cost: string;
   cmc: number;
   type_line: string;
-  super_type: string;
+  main_type: string;
+  super_types: string[];
   sub_types: string[];
   oracle_text: string;
   power: string;
@@ -24,7 +25,8 @@ export class Card {
     this.cmc = obj.cmc;
     this.type_line = obj.type_line;
     let typeLineSplit = this.type_line.split(' — ');
-    this.super_type = typeLineSplit[0];
+    this.super_types = typeLineSplit[0].split(' ');
+    this.main_type = this.super_types[this.super_types.length - 1];
     this.sub_types = typeLineSplit[1]?.split(' ');
     this.oracle_text = obj.oracle_text;
     this.power = obj.power;

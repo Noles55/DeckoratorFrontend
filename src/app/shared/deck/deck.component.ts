@@ -23,9 +23,9 @@ export class DeckComponent implements OnInit {
     forkJoin(this.deck.cards).subscribe(val => {
       val.forEach(cardJson => {
         let card = new Card(cardJson);
-        if (!this.cardTypes.includes(card.super_type)) this.cardTypes.push(card.super_type);
-        if (!this.cardList[card.super_type]) this.cardList[card.super_type] = [];
-        this.cardList[card.super_type].push(card);
+        if (!this.cardTypes.includes(card.main_type)) this.cardTypes.push(card.main_type);
+        if (!this.cardList[card.main_type]) this.cardList[card.main_type] = [];
+        this.cardList[card.main_type].push(card);
       });
       this.notificationService.sendEvent("loading", false);
     });

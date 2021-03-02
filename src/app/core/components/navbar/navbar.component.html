@@ -10,8 +10,9 @@
       <a class="item" routerLink="/prediction" routerLinkActive="active">Prediction</a>
   </nav>
 </div>
+<div *ngIf="!loading" class="progress-bar-placeholder"></div>
 <mat-progress-bar
-         *ngIf="loading" color="blue" mode="indeterminate">
+        *ngIf="loading" color="blue" mode="indeterminate">
 </mat-progress-bar>
 
 <
