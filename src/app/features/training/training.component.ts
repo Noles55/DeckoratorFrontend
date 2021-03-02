@@ -30,8 +30,8 @@ export class TrainingComponent implements OnInit {
   }
 
   onRatingSubmit = () => {
-    this.deck = this.deckService.getRandomDeck();
-    console.log(this.rating);
+    this.rating = 50;
+    location.reload();
   }
 
   onSliderChange = (event: MatSliderChange) => {
