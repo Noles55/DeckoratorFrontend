@@ -4,9 +4,7 @@
 <div>
   <ul>
     <li *ngFor="let card of cardList">
-      <div class="pointer" (mouseenter)="selectCard(card)">
-        {{ card.name }}
-      </div>
+      <hoverable-card [card]="card" [url]="card.scryfall_url"></hoverable-card>
     </li>
   </ul>
 </div>

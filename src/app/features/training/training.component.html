@@ -1,7 +1,9 @@
 <div *ngIf="deck" class="container-fluid">
   <div class="row">
     <div class="col-auto">
-      <h2>{{ deck.commanders[0] }}</h2>
+      <h2>
+        <hoverable-card [card]="deck.commander_cards[0]" [url]="deck.url"></hoverable-card>
+      </h2>
     </div>
     <div class="col">
       <mat-slider max=100 min=0 [value]="rating" step=1 thumbLabel=true color="primary" (change)="onSliderChange($event)"></mat-slider>

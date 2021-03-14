@@ -9,6 +9,7 @@ export class Card {
   color_identity: string[];
   tcg_price: number;
   gatherer_uri: string;
+  scryfall_url: string;
 
   constructor(obj: any) {
     this.name = obj.name;
@@ -21,5 +22,6 @@ export class Card {
     this.sub_types = typeLineSplit[1]?.split(' ');
     this.tcg_price = obj.tcg_price;
     this.gatherer_uri = obj.gatherer_uri;
+    this.scryfall_url = obj.scryfall_url;
   }
 }

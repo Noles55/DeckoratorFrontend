@@ -1,3 +1,4 @@
+import { HoverableCardComponent } from './hoverable-card/hoverable-card.component';
 import { CardTypeListComponent } from './card-type-list/card-type-list.component';
 import { CardViewerComponent } from './card-viewer/card-viewer.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -15,11 +16,13 @@ import { CommonModule } from '@angular/common';
   declarations: [
     DeckComponent,
     CardViewerComponent,
-    CardTypeListComponent
+    CardTypeListComponent,
+    HoverableCardComponent
   ],
   exports: [
     DeckComponent,
-    CardViewerComponent
+    CardViewerComponent,
+    HoverableCardComponent
   ]
 })
 export class SharedModule { }

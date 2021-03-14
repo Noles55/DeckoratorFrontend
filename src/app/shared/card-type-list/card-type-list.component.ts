@@ -12,13 +12,8 @@ export class CardTypeListComponent implements OnInit {
   @Input() cardType: string;
   @Input() cardList: Card[];
 
-  constructor(private notificationService: NotificationService) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  selectCard(card: Card) {
-    this.notificationService.sendEvent<Card>("selectCard", card)
-  }
-
-}
+ }

@@ -1,0 +1,8 @@
+<div class="pointer" (mouseenter)="onMouseEnter()">
+  <a *ngIf="url" [href]="url" target="_blank">
+    {{ card.name }}
+  </a>
+  <div *ngIf="!url">
+    {{ card.name }}
+  </div>
+</div>
