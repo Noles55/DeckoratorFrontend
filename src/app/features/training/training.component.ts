@@ -17,17 +17,15 @@ export class TrainingComponent implements OnInit {
   rating: number = 50;
 
   constructor(private deckService: DeckService, private notificationService: NotificationService) {
+    this.notificationService.subscribeToEvent<Card>("selectCard", this.onCardSelect);
   }
 
   ngOnInit() {
-    this.notificationService.subscribeToEvent<Card>("selectCard", this.onCardSelect);
     this.notificationService.sendEvent('loading', true);
     this.deckService.getRandomDeck().subscribe(deckJson => {
       this.deck = new Deck(deckJson)
       this.notificationService.sendEvent('loading', false);
-      this.notificationService.sendEvent('selectCard', this.deck.cards.find(card => {
-        card.name === this.deck.commanders[0];
-      }))
+      this.notificationService.sendEvent('selectCard', this.deck.commander_cards[0])
     });
   }
 
@@ -37,7 +35,7 @@ export class TrainingComponent implements OnInit {
 
   onRatingSubmit = () => {
     this.rating = 50;
-    location.reload();
+    this.ngOnInit();
   }
 
   onSliderChange = (event: MatSliderChange) => {

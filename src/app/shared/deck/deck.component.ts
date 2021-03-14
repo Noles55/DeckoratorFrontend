@@ -8,8 +8,23 @@ import { Deck } from 'src/app/core/entities/deck';
     styleUrls: ['./deck.component.css'],
 })
 export class DeckComponent implements OnInit {
-    @Input() deck: Deck;
 
+    private _deck: Deck;
+
+    @Input() set deck(value: Deck) {
+        this._deck = value;
+        this.cardTypes = [];
+        this.cardList = {};
+        this._deck.cards.forEach(card => {
+            if (!this.cardTypes.includes(card.primary_type)) this.cardTypes.push(card.primary_type);
+            if (!this.cardList[card.primary_type]) this.cardList[card.primary_type] = [];
+            this.cardList[card.primary_type].push(card);
+        });
+    };
+
+    get deck(): Deck {
+      return this._deck;
+    }
 
     cardTypes: string[] = [];
     cardList = {};
@@ -17,10 +32,6 @@ export class DeckComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        this.deck.cards.forEach(card => {
-            if (!this.cardTypes.includes(card.primary_type)) this.cardTypes.push(card.primary_type);
-            if (!this.cardList[card.primary_type]) this.cardList[card.primary_type] = [];
-            this.cardList[card.primary_type].push(card);
-        });
+
     }
 }

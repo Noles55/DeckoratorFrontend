@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { Card } from './card';
 
 export class Deck {
     commanders: string[];
+    commander_cards: Card[];
     url: string;
     price: number;
     color_identity: string[];
@@ -11,6 +11,7 @@ export class Deck {
 
     constructor(obj: any) {
         this.commanders = obj.commanders;
+        this.commander_cards = obj.commander_cards.map(cardJson => new Card(cardJson));
         this.url = obj.url;
         this.price = obj.price;
         this.color_identity = obj.color_identity;
