@@ -67,10 +67,4 @@ export class DeckComponent implements OnInit {
           basic.count = Math.round(colorPercents[this._deck.color_identity.indexOf(basic.color_identity[0])] * totalBasics);
         });
     }
-
-    private indexOf(list: any[], element: any): number {
-      for (let i = 0; i < list.length; i++) {
-        if (list[i] === element) return i;
-      }
-    }
 }
