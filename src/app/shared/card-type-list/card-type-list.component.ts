@@ -11,9 +11,13 @@ export class CardTypeListComponent implements OnInit {
 
   @Input() cardType: string;
   @Input() cardList: Card[];
+  cardCount: number = 0;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.cardList.forEach(card => this.cardCount += card.count)
   }
+
  }

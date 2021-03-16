@@ -1,8 +1,8 @@
 <div class="pointer" (mouseenter)="onMouseEnter()">
   <a *ngIf="url" [href]="url" target="_blank">
-    {{ card.name }}
+    {{ card.count }} {{ card.name }}
   </a>
   <div *ngIf="!url">
-    {{ card.name }}
+    {{ card.count }} {{ card.name }}
   </div>
 </div>
