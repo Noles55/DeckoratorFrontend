@@ -41,30 +41,16 @@ export class DeckComponent implements OnInit {
     private calculateBasicLandCounts() {
         let basics: Card[] = [];
         this.cardList['Land'].forEach(land => {
-          if (land.super_types.length === 2 && land.super_types.includes("Basic")) basics.push(land);
+          if (land.super_types.includes("Basic")) basics.push(land);
         });
 
         let totalBasics: number = this._deck.land_count - this.cardList['Land'].length + basics.length;
-        let colorCounts: number[] = [];
-        let totalColorCount = 0;
-
-        this._deck.cards.forEach(card => {
-          card.color_identity?.forEach(color => {
-            let colorIndex: number = this._deck.color_identity.indexOf(color);
-            if (!colorCounts[colorIndex]) colorCounts[colorIndex] = 0;
-            colorCounts[this._deck.color_identity.indexOf(color)]++;
-            totalColorCount++;
-          });
-        });
-
-        let colorPercents: number[] = [];
-
-        for (let i = 0; i < colorCounts.length; i++) {
-          colorPercents[i] = colorCounts[i] / totalColorCount;
+        let numEachBasic = Math.round(totalBasics / basics.length);
+        let i = 0;
+        for (i; i < basics.length - 1; i++) {
+          basics[i].count = numEachBasic;
         }
 
-        basics.forEach(basic => {
-          basic.count = Math.round(colorPercents[this._deck.color_identity.indexOf(basic.color_identity[0])] * totalBasics);
-        });
+        basics[i].count = totalBasics - numEachBasic * i;
     }
 }

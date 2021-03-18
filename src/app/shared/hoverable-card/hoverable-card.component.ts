@@ -12,6 +12,7 @@ export class HoverableCardComponent implements OnInit {
 
   @Input() card: Card;
   @Input() url: string;
+  @Input() isCommander: boolean;
 
   constructor(private notificationService: NotificationService) { }
 

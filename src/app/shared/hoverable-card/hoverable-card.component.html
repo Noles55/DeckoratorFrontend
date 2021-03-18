@@ -1,8 +1,3 @@
-<div class="pointer" (mouseenter)="onMouseEnter()">
-  <a *ngIf="url" [href]="url" target="_blank">
-    {{ card.count }} {{ card.name }}
-  </a>
-  <div *ngIf="!url">
-    {{ card.count }} {{ card.name }}
-  </div>
-</div>
+<a *ngIf="url" [href]="url" target="_blank" class="pointer" (mouseenter)="onMouseEnter()">
+  {{ isCommander ? "" : card.count }} {{ card.name }}
+</a>
