@@ -34,6 +34,7 @@ export class TrainingComponent implements OnInit {
   }
 
   onRatingSubmit = () => {
+    this.deckService.submitTrainingDeck(this.deck, this.rating);
     this.rating = 50;
     this.ngOnInit();
   }

@@ -10,6 +10,7 @@ export class Card {
   tcg_price: number;
   gatherer_uri: string;
   scryfall_url: string;
+  scryfall_identifier: string;
   count: number = 1;
 
   constructor(obj: any) {
@@ -25,5 +26,6 @@ export class Card {
     this.tcg_price = obj.tcg_price;
     this.gatherer_uri = obj.gatherer_uri;
     this.scryfall_url = obj.scryfall_url;
+    this.scryfall_identifier = obj.scryfall_identifier;
   }
 }
