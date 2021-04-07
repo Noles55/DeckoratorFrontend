@@ -1,10 +1,12 @@
 # DeckoratorFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+## Getting started from scratch
 
-## Development server
+Go to [Angular Local Setup Tutorial](https://angular.io/guide/setup-local) and follow the Prerequisites and Install the Angular CLI steps.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Start the app
+
+Run `ng serve --configuration=<env>` to start server pointed at aws resources for a specific environment. Available environments are `dev` and `production`. Please provide actual ratings for decks submitted in the production environment. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
