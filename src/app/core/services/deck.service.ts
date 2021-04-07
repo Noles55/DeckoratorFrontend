@@ -22,7 +22,6 @@ export class DeckService {
   submitTrainingDeck(deck: Deck, rating: number) {
 
     let trainingData: TrainingDeckDto = new TrainingDeckDto(deck.commander_cards, deck.cards, rating);
-    console.log(trainingData);
-    //this.http.post(this.baseUrl + "/trainingDeck",);
+    this.http.post(this.baseUrl + "/trainingDeck", JSON.stringify(trainingData)).subscribe();
   }
 }
