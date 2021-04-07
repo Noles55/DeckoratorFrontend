@@ -7,13 +7,11 @@
   <nav>
       <a class="title" routerLink="/" routerLinkActive="active">Deckorator</a>
       <a class="item" routerLink="/training" routerLinkActive="active">Training</a>
-      <a class="item" routerLink="/prediction" routerLinkActive="active">Prediction</a>
+      <!-- <a class="item" routerLink="/prediction" routerLinkActive="active">Prediction</a> -->
   </nav>
+  <div class="right">Environment: {{ environment }}</div>
 </div>
 <div *ngIf="!loading" class="progress-bar-placeholder"></div>
 <mat-progress-bar
         *ngIf="loading" color="blue" mode="indeterminate">
 </mat-progress-bar>
-
-<
-

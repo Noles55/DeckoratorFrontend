@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../../services/notification.service';
 
@@ -9,8 +10,10 @@ import { NotificationService } from '../../services/notification.service';
 export class NavbarComponent {
 
   loading = false;
+  environment: string;
 
   constructor(private notificationService: NotificationService) {
     this.notificationService.subscribeToEvent<boolean>("loading", (status) => this.loading = status);
+    this.environment = environment.production ? "production" : "dev";
   }
 }
