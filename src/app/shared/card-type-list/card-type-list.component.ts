@@ -10,14 +10,25 @@ import { Card } from 'src/app/core/entities/card';
 export class CardTypeListComponent implements OnInit {
 
   @Input() cardType: string;
-  @Input() cardList: Card[];
-  cardCount: number = 0;
+  cardCount: number;
+
+  private _cardList: Card[];
+
+  @Input() set cardList(value: Card[]) {
+    this._cardList = value;
+    this.cardCount = 0;
+    value.forEach(card => this.cardCount += card.count)
+  };
+
+  get cardList(): Card[] {
+    return this._cardList;
+  }
 
   constructor() {
   }
 
   ngOnInit() {
-    this.cardList.forEach(card => this.cardCount += card.count)
+
   }
 
  }
