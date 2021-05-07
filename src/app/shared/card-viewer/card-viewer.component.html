@@ -1,6 +1,6 @@
 <div *ngIf="card" class="card-viewer">
-  <div class="card-image" >
-    <img [src]="card.image_uris[0]" alt=""/>
+  <div class="card-window">
+    <img class="card-image" [src]="card.image_uris[0]" alt=""/>
   </div>
   <h4>{{ card.name }}</h4>
   <h5>{{ card.type_line }}</h5>

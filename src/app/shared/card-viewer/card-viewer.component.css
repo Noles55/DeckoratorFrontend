@@ -4,6 +4,10 @@
 }
 
 .card-viewer .card-image {
+  border-radius: 15px;
+}
+
+.card-viewer .card-window {
   max-width: 250px;
   min-width: 75px;
   margin-left: auto;
