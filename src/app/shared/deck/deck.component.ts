@@ -43,26 +43,36 @@ export class DeckComponent implements OnInit {
       "Seven Dwarves"
     ];
 
+    basicMap = {
+      "W": "Plains",
+      "U": "Island",
+      "B": "Swamp",
+      "R": "Mountain",
+      "G": "Forest",
+      "C": "Wastes"
+    }
+
     constructor() { }
 
     ngOnInit() {
     }
 
     private calculateBasicLandCounts() {
-        let basics: Card[] = [];
-        this.cardLists['Land'].forEach(land => {
-          if (land.super_types.includes("Basic")) basics.push(land);
-        });
+      let basics: Card[] = [];
+      this.cardLists['Land'].forEach(land => {
+        if (land.super_types.includes("Basic")) basics.push(land);
+      });
 
-        let totalBasics: number = this._deck.land_count - this.cardLists['Land'].length + basics.length;
-        let numEachBasic = Math.round(totalBasics / basics.length);
-        let i = 0;
-        for (i; i < basics.length - 1; i++) {
-          basics[i].count = numEachBasic;
-        }
+      let totalNumBasics: number = 100 - (this.totalCardCount - basics.length);
+      let numEachBasic: number = Math.round(totalNumBasics / basics.length);
+      // Remainder being used as value and flag, remainder only added to land count of first color
+      let remainder: number = totalNumBasics - (numEachBasic * basics.length);
+      for (let i = 0; i < basics.length; i++) {
+        basics[i].count = numEachBasic + remainder;
+        remainder = 0;
+      }
 
-        basics[i].count = totalBasics - numEachBasic * i;
-        this.totalCardCount = this.totalCardCount + totalBasics - basics.length;
+      this.totalCardCount = this.totalCardCount + totalNumBasics - basics.length;
     }
 
     private calculateFringeCardCounts() {
