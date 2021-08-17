@@ -64,7 +64,7 @@ export class DeckComponent implements OnInit {
       });
 
       let totalNumBasics: number = 100 - (this.totalCardCount - basics.length);
-      let numEachBasic: number = Math.round(totalNumBasics / basics.length);
+      let numEachBasic: number = Math.floor(totalNumBasics / basics.length);
       // Remainder being used as value and flag, remainder only added to land count of first color
       let remainder: number = totalNumBasics - (numEachBasic * basics.length);
       for (let i = 0; i < basics.length; i++) {
